@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2026-03-16T10:23:11",
+    "source_ip": "185.220.101.45",
+    "destination_ip": "192.168.1.10",
+    "event_type": "failed_login",
+    "count": 87,
+    "user": "admin",
+    "service": "ssh",
+    "message": "Multiple failed SSH login attempts from 185.220.101.45"
+  },
+  {
+    "timestamp": "2026-03-16T10:25:44",
+    "source_ip": "103.21.244.0",
+    "destination_ip": "192.168.1.10",
+    "event_type": "port_scan",
+    "ports_scanned": [22, 80, 443, 3306, 8080],
+    "message": "Port scan detected from 103.21.244.0"
+  },
+  {
+    "timestamp": "2026-03-16T10:31:02",
+    "source_ip": "192.168.1.55",
+    "destination_ip": "10.0.0.5",
+    "event_type": "malware_detected",
+    "file_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "filename": "invoice.exe",
+    "message": "Malware detected in file invoice.exe"
+  },
+  {
+    "timestamp": "2026-03-16T10:45:19",
+    "source_ip": "91.108.4.0",
+    "destination_ip": "192.168.1.20",
+    "event_type": "sql_injection",
+    "endpoint": "/api/users",
+    "payload": "' OR 1=1 --",
+    "message": "SQL injection attempt detected on /api/users"
+  }
+]
