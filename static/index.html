@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersec Threat Detection</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: monospace; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 2rem; }
+    h1 { color: #58a6ff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    p { color: #8b949e; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.25rem; }
+    .card h3 { color: #58a6ff; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .card p { font-size: 0.8rem; margin-bottom: 1rem; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-bottom: 0.75rem; }
+    .badge.post { background: #1f4b2e; color: #3fb950; }
+    .badge.get { background: #1a3a5c; color: #58a6ff; }
+    code { background: #0d1117; border: 1px solid #30363d; border-radius: 4px; padding: 0.75rem; display: block; font-size: 0.75rem; color: #a5d6ff; margin-bottom: 0.75rem; overflow-x: auto; }
+    a.btn { display: inline-block; background: #238636; color: #fff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; }
+    a.btn:hover { background: #2ea043; }
+    .status { display: flex; align-items: center; gap: 8px; margin-bottom: 2rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #3fb950; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  </style>
+</head>
+<body>
+  <h1>Cybersec Threat Detection API</h1>
+  <p>AI-powered multi-agent cybersecurity threat detection system</p>
+  <div class="status">
+    <div class="dot"></div>
+    <span style="font-size:0.85rem; color:#3fb950">API Online</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="badge post">POST</span>
+      <h3>/analyze</h3>
+      <p>Send raw logs as JSON and get a full threat analysis report back</p>
+      <code>curl -X POST http://localhost:8000/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"logs": [...]}'</code>
+    </div>
+
+    <div class="card">
+      <span class="badge post">POST</span>
+      <h3>/analyze/file</h3>
+      <p>Upload a JSON log file directly for analysis</p>
+      <code>curl -X POST http://localhost:8000/analyze/file \
+  -F "file=@data/sample_logs.json"</code>
+    </div>
+
+    <div class="card">
+      <span class="badge post">POST</span>
+      <h3>/check/ip</h3>
+      <p>Check if an IP address is malicious via VirusTotal and AbuseIPDB</p>
+      <code>curl -X POST http://localhost:8000/check/ip \
+  -H "Content-Type: application/json" \
+  -d '{"ip": "185.220.101.45"}'</code>
+    </div>
+
+    <div class="card">
+      <span class="badge post">POST</span>
+      <h3>/check/hash</h3>
+      <p>Check if a file hash is malicious via VirusTotal</p>
+      <code>curl -X POST http://localhost:8000/check/hash \
+  -H "Content-Type: application/json" \
+  -d '{"file_hash": "d41d8cd98f00b204e9800998ecf8427e"}'</code>
+    </div>
+
+    <div class="card">
+      <span class="badge get">GET</span>
+      <h3>/reports</h3>
+      <p>List all generated incident reports</p>
+      <code>curl http://localhost:8000/reports</code>
+    </div>
+
+    <div class="card">
+      <span class="badge get">GET</span>
+      <h3>/reports/{incident_id}</h3>
+      <p>Fetch a specific incident report by ID</p>
+      <code>curl http://localhost:8000/reports/INC-20260317-0001</code>
+    </div>
+  </div>
+
+  <a class="btn" href="/docs">Open Interactive API Docs →</a>
+</body>
+</html>
