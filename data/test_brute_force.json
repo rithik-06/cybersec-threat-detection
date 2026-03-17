@@ -1,0 +1,39 @@
+[
+  {
+    "timestamp": "2026-03-17T08:10:01",
+    "source_ip": "45.33.32.156",
+    "destination_ip": "192.168.1.1",
+    "event_type": "failed_login",
+    "count": 523,
+    "user": "root",
+    "service": "ssh",
+    "message": "523 failed SSH login attempts from 45.33.32.156 targeting root account"
+  },
+  {
+    "timestamp": "2026-03-17T08:10:45",
+    "source_ip": "45.33.32.156",
+    "destination_ip": "192.168.1.1",
+    "event_type": "failed_login",
+    "count": 210,
+    "user": "admin",
+    "service": "ssh",
+    "message": "210 failed SSH login attempts from 45.33.32.156 targeting admin account"
+  },
+  {
+    "timestamp": "2026-03-17T08:12:30",
+    "source_ip": "45.33.32.156",
+    "destination_ip": "192.168.1.1",
+    "event_type": "successful_login",
+    "user": "backup",
+    "service": "ssh",
+    "message": "Successful SSH login from 45.33.32.156 as user backup after multiple failures"
+  },
+  {
+    "timestamp": "2026-03-17T08:13:10",
+    "source_ip": "192.168.1.1",
+    "destination_ip": "45.33.32.156",
+    "event_type": "data_transfer",
+    "bytes_sent": 15728640,
+    "message": "Large outbound data transfer of 15MB to external IP 45.33.32.156"
+  }
+]

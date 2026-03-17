@@ -1,0 +1,51 @@
+[
+  {
+    "timestamp": "2026-03-17T02:14:05",
+    "source_ip": "91.108.56.100",
+    "destination_ip": "192.168.1.50",
+    "event_type": "port_scan",
+    "ports_scanned": [22, 80, 443, 3306, 5432, 6379, 8080, 8443, 9200],
+    "message": "Stealthy port scan from 91.108.56.100 targeting internal server 192.168.1.50"
+  },
+  {
+    "timestamp": "2026-03-17T02:45:30",
+    "source_ip": "91.108.56.100",
+    "destination_ip": "192.168.1.50",
+    "event_type": "sql_injection",
+    "endpoint": "/api/v1/login",
+    "payload": "admin' UNION SELECT username,password FROM users--",
+    "message": "SQL injection attack on /api/v1/login from 91.108.56.100"
+  },
+  {
+    "timestamp": "2026-03-17T03:10:15",
+    "source_ip": "91.108.56.100",
+    "destination_ip": "192.168.1.50",
+    "event_type": "successful_exploit",
+    "vulnerability": "CVE-2024-1234",
+    "message": "Successful exploitation of CVE-2024-1234 on web server 192.168.1.50"
+  },
+  {
+    "timestamp": "2026-03-17T03:15:00",
+    "source_ip": "192.168.1.50",
+    "destination_ip": "91.108.56.100",
+    "event_type": "reverse_shell",
+    "port": 4444,
+    "message": "Reverse shell connection established from 192.168.1.50 to attacker 91.108.56.100 on port 4444"
+  },
+  {
+    "timestamp": "2026-03-17T03:22:44",
+    "source_ip": "192.168.1.50",
+    "destination_ip": "192.168.1.0/24",
+    "event_type": "internal_recon",
+    "message": "Internal network reconnaissance from compromised host 192.168.1.50"
+  },
+  {
+    "timestamp": "2026-03-17T03:45:10",
+    "source_ip": "192.168.1.50",
+    "destination_ip": "91.108.56.100",
+    "event_type": "data_exfiltration",
+    "bytes_sent": 524288000,
+    "files": ["customers.db", "passwords.txt", "financial_records.xlsx"],
+    "message": "Data exfiltration detected — 500MB including customers.db and financial_records.xlsx sent to 91.108.56.100"
+  }
+]
