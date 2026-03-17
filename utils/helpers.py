@@ -49,3 +49,27 @@ def severity_color(severity: str) -> str:
     }
     reset = "\033[0m"
     return f"{colors.get(severity.lower(), '')}[{severity.upper()}]{reset}"
+
+
+import time
+
+def retry_on_rate_limit(func, *args, max_retries=3, delay=10, **kwargs):
+    for attempt in range(max_retries):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            error_msg = str(e).lower()
+            if "rate limit" in error_msg or "429" in error_msg:
+                wait_time = delay * (attempt + 1)
+                from utils.logger import logger
+                logger.warning(f"Rate limit hit — waiting {wait_time}s before retry {attempt + 1}/{max_retries}")
+                time.sleep(wait_time)
+            else:
+                raise e
+    raise Exception(f"Max retries ({max_retries}) exceeded due to rate limiting")
+
+
+def agent_delay(seconds=3):
+    from utils.logger import logger
+    logger.info(f"Rate limit guard — waiting {seconds}s before next agent...")
+    time.sleep(seconds)

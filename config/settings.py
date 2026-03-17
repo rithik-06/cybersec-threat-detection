@@ -22,6 +22,11 @@ LLM_CONFIG = {
     "max_tokens": MAX_TOKENS,
 }
 
+# Rate limit settings
+AGENT_DELAY_SECONDS = 3
+MAX_RETRIES = 3
+RETRY_DELAY_SECONDS = 10
+
 VIRUSTOTAL_BASE_URL = "https://www.virustotal.com/api/v3"
 ABUSEIPDB_BASE_URL = "https://api.abuseipdb.com/api/v2"
 
