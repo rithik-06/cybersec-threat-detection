@@ -7,7 +7,7 @@ from utils.helpers import extract_ips, extract_domains, extract_hashes, format_t
 
 class LogAnalyzerAgent:
     def __init__(self):
-        self.agent = autogen.AssistantAgent(
+        self.agent = AssistantAgent(
             name="LogAnalyzer",
             system_message="""You are a cybersecurity log analysis expert.
 Your job is to:
@@ -21,7 +21,7 @@ Always respond with valid JSON only. No extra text.""",
             llm_config=LLM_CONFIG,
         )
 
-        self.user_proxy = autogen.UserProxyAgent(
+        self.user_proxy = UserProxyAgent(
             name="LogAnalyzerProxy",
             human_input_mode="NEVER",
             max_consecutive_auto_reply=1,
