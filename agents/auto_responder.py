@@ -7,7 +7,7 @@ from utils.helpers import format_timestamp, severity_color
 
 class AutoResponderAgent:
     def __init__(self):
-        self.agent = autogen.AssistantAgent(
+        self.agent = AssistantAgent(
             name="AutoResponder",
             system_message="""You are an automated cybersecurity incident responder.
 Your job is to:
@@ -22,7 +22,7 @@ Always respond with valid JSON only. No extra text.""",
             llm_config=LLM_CONFIG,
         )
 
-        self.user_proxy = autogen.UserProxyAgent(
+        self.user_proxy =UserProxyAgent(
             name="AutoResponderProxy",
             human_input_mode="NEVER",
             max_consecutive_auto_reply=1,

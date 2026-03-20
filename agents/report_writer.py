@@ -7,7 +7,7 @@ from utils.helpers import format_timestamp, save_report
 
 class ReportWriterAgent:
     def __init__(self):
-        self.agent = autogen.AssistantAgent(
+        self.agent = AssistantAgent(
             name="ReportWriter",
             system_message="""You are a professional cybersecurity incident report writer.
 Your job is to:
@@ -21,7 +21,7 @@ Always respond with valid JSON only. No extra text.""",
             llm_config=LLM_CONFIG,
         )
 
-        self.user_proxy = autogen.UserProxyAgent(
+        self.user_proxy = UserProxyAgent(
             name="ReportWriterProxy",
             human_input_mode="NEVER",
             max_consecutive_auto_reply=1,
