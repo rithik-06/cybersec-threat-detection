@@ -1,6 +1,6 @@
 import json
 import requests
-import autogen
+from autogen import AssistantAgent, UserProxyAgent
 from config.settings import LLM_CONFIG, VIRUSTOTAL_API_KEY, ABUSEIPDB_API_KEY, VIRUSTOTAL_BASE_URL, ABUSEIPDB_BASE_URL
 from utils.logger import logger
 from utils.helpers import format_timestamp

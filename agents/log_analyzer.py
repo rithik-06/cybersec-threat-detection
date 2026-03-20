@@ -1,5 +1,5 @@
 import json
-import autogen
+from autogen import AssistantAgent, UserProxyAgent
 from config.settings import LLM_CONFIG
 from utils.logger import logger
 from utils.helpers import extract_ips, extract_domains, extract_hashes, format_timestamp
